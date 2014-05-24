@@ -1,6 +1,7 @@
 export function printHello() {
 	console.info("Hello");
-}	
+}
+
 // Create your component here
 // http://x-tags.org/docs
 
