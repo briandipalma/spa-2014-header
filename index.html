@@ -15,7 +15,7 @@
 
 		<script>
 			System.import("src/index").then(function(module) {
-				module.printHello();
+				document.registerElement("spa2014-header", module.HeaderElement);
 			});
 		</script>
 	</head>

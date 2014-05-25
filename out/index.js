@@ -1,29 +1,8 @@
 "use strict";
 Object.defineProperties(exports, {
-  printHello: {get: function() {
-      return printHello;
+  HeaderElement: {get: function() {
+      return $__HeaderElement__.HeaderElement;
     }},
   __esModule: {value: true}
 });
-function printHello() {
-  console.info("Hello");
-}
-xtag.register('spa2014-header', {
-  lifecycle: {
-    created: function() {
-      console.info("header created");
-    },
-    inserted: function() {
-      console.info("header inserted");
-    },
-    removed: function() {
-      console.info("header removed");
-    },
-    attributeChanged: function() {
-      console.info("header attribute changed");
-    }
-  },
-  events: {},
-  accessors: {},
-  methods: {}
-});
+var $__HeaderElement__ = require('./HeaderElement');
