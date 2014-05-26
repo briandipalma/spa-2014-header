@@ -11,9 +11,18 @@ var HeaderElement = function HeaderElement() {
 var $HeaderElement = HeaderElement;
 ($traceurRuntime.createClass)(HeaderElement, {
   createdCallback: function() {
-    this.textContent = "I'm a header!";
+    this.innerHTML = "<div class='error-message'>Login failed, please provide correct login details.</div>\
+							<label for='username'>Username</label>\
+							<input type='text' id='username' name='username' />\
+							<label for='password'>Password</label>\
+							<input type='text' id='password' name='password' />\
+							<button name='login'>Log in</button>\
+							<button name='logout'>Log out</button>";
+    console.info("created header");
   },
-  attachedCallback: function() {},
+  attachedCallback: function() {
+    console.info("attached header");
+  },
   detachedCallback: function() {},
   attributeChangedCallback: function(attr, oldVal, newVal) {},
   foo: function() {
