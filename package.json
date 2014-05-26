@@ -10,10 +10,12 @@
   "dependencies": {
     "traceur": "~0.0.42",
     "es6-module-loader": "~0.6.0",
-    "x-tag-core": "git://github.com/x-tag/core#0.9.7"
+    "x-tag-core": "git://github.com/x-tag/core#0.9.7",
+    "emitr": "0.0.3"
   },
   "devDependencies": {
     "watchy": "~0.4.4",
-    "node-static": "~0.7.3"
+    "node-static": "~0.7.3",
+    "systemjs": "^0.6.6"
   }
 }
