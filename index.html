@@ -14,9 +14,14 @@
 		<script src="node_modules/x-tag-core/dist/x-tag-core.min.js"></script>
 
 		<script>
-			System.import("src/index").then(function(module) {
-				document.registerElement("spa2014-header", module.HeaderElement);
-			});
+			System
+				.import("src/index")
+				.then(function(module) {
+					document.registerElement("spa2014-header", module.HeaderElement);
+				})
+				.catch(function(importError) {
+					console.error(importError);
+				});
 		</script>
 	</head>
 	<body>
