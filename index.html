@@ -17,6 +17,18 @@
 		<script>
 			System.trace = true;
 
+			System.config({
+				paths: {
+					"emitr": "node_modules/emitr/lib/index.js",
+					"Emitter": "node_modules/emitr/lib/Emitter.js",
+					"events": "node_modules/emitr/lib/events.js",
+					"Event": "node_modules/emitr/lib/Event.js",
+					"MultiMap": "node_modules/emitr/lib/MultiMap.js",
+					"shams": "node_modules/emitr/lib/shams.js",
+					"Map": "node_modules/emitr/lib/Map.js"
+				}
+			});
+
 			System
 				.import("src/index")
 				.then(function(module) {
