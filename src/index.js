@@ -1,1 +1,2 @@
-export {HeaderElement} from './HeaderElement';
+export {HeaderStore} from "./HeaderStore";
+export {HeaderElement} from "./HeaderElement";
