@@ -23,6 +23,8 @@ export class HeaderElement extends HTMLElement {
 		passwordInput.addEventListener("keydown", (keyboardEvent) => this._inputKeydownListener(keyboardEvent));
 
 		HeaderStore.addChangeListener(this.headerStoreChanged);
+
+		this.headerStoreChanged();
 	}
 
 	// Fires when the instance is removed from the document

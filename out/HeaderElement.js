@@ -36,6 +36,7 @@ var $HeaderElement = HeaderElement;
       return $__0._inputKeydownListener(keyboardEvent);
     }));
     HeaderStore.addChangeListener(this.headerStoreChanged);
+    this.headerStoreChanged();
   },
   detachedCallback: function() {},
   attributeChangedCallback: function(attr, oldVal, newVal) {},
