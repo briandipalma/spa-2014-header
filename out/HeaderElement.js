@@ -5,20 +5,15 @@ Object.defineProperties(exports, {
     }},
   __esModule: {value: true}
 });
-require('../css/index.css!');
+require("../css/index.css!");
+var headerTemplate = $traceurRuntime.assertObject(require("../template/header.text!")).default;
 var HeaderElement = function HeaderElement() {
   $traceurRuntime.defaultSuperCall(this, $HeaderElement.prototype, arguments);
 };
 var $HeaderElement = HeaderElement;
 ($traceurRuntime.createClass)(HeaderElement, {
   createdCallback: function() {
-    this.innerHTML = "<div class='error-message'>Login failed, please provide correct login details.</div>\
-							<label for='username'>Username</label>\
-							<input type='text' id='username' name='username' />\
-							<label for='password'>Password</label>\
-							<input type='text' id='password' name='password' />\
-							<button name='login'>Log in</button>\
-							<button name='logout'>Log out</button>";
+    this.innerHTML = headerTemplate;
   },
   attachedCallback: function() {
     var $__0 = this;

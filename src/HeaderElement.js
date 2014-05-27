@@ -1,15 +1,10 @@
-import '../css/index.css!';
+import "../css/index.css!";
+import headerTemplate from "../template/header.text!";
 
 export class HeaderElement extends HTMLElement {
 	// Fires when an instance of the HeaderElement is created
 	createdCallback() {
-		this.innerHTML = "<div class='error-message'>Login failed, please provide correct login details.</div>\
-							<label for='username'>Username</label>\
-							<input type='text' id='username' name='username' />\
-							<label for='password'>Password</label>\
-							<input type='text' id='password' name='password' />\
-							<button name='login'>Log in</button>\
-							<button name='logout'>Log out</button>";
+		this.innerHTML = headerTemplate;
 	}
 
 	// Fires when an instance was inserted into the document
