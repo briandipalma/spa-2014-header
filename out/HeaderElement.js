@@ -35,16 +35,16 @@ var $HeaderElement = HeaderElement;
     passwordInput.addEventListener("keydown", (function(keyboardEvent) {
       return $__0._inputKeydownListener(keyboardEvent);
     }));
-    HeaderStore.addChangeListener(this.onHeaderStoreChange);
+    HeaderStore.addChangeListener(this.headerStoreChanged);
   },
   detachedCallback: function() {},
   attributeChangedCallback: function(attr, oldVal, newVal) {},
   render: function() {
-    var loginState = this.props.logginState;
+    var loginState = this.props.loginState;
     var loginErrorState = this.props.loginErrorState;
-    this.className = loginState + " " + errorState;
+    this.className = loginState + " " + loginErrorState;
   },
-  onHeaderStoreChange: function() {
+  headerStoreChanged: function() {
     this.props = HeaderStore.getState();
     this.render();
   },
