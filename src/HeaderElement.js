@@ -1,3 +1,5 @@
+import '../css/index.css!';
+
 export class HeaderElement extends HTMLElement {
 	// Fires when an instance of the HeaderElement is created
 	createdCallback() {

@@ -5,6 +5,7 @@ Object.defineProperties(exports, {
     }},
   __esModule: {value: true}
 });
+require('../css/index.css!');
 var HeaderElement = function HeaderElement() {
   $traceurRuntime.defaultSuperCall(this, $HeaderElement.prototype, arguments);
 };
