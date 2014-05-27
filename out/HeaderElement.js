@@ -18,14 +18,44 @@ var $HeaderElement = HeaderElement;
 							<input type='text' id='password' name='password' />\
 							<button name='login'>Log in</button>\
 							<button name='logout'>Log out</button>";
-    console.info("created header");
   },
   attachedCallback: function() {
-    console.info("attached header");
+    var $__0 = this;
+    var usernameInput = this.querySelector("#username");
+    var passwordInput = this.querySelector("#password");
+    var loginButton = this.querySelector("button[name='login']");
+    var logoutButton = this.querySelector("button[name='logout']");
+    loginButton.addEventListener("click", (function() {
+      return $__0._onLoginClicked();
+    }));
+    logoutButton.addEventListener("click", (function() {
+      return $__0._onLogoutClicked();
+    }));
+    usernameInput.addEventListener("keydown", (function(keyboardEvent) {
+      return $__0._inputKeydownListener(keyboardEvent);
+    }));
+    passwordInput.addEventListener("keydown", (function(keyboardEvent) {
+      return $__0._inputKeydownListener(keyboardEvent);
+    }));
   },
   detachedCallback: function() {},
   attributeChangedCallback: function(attr, oldVal, newVal) {},
-  foo: function() {
-    console.log("foo() called");
+  render: function() {
+    var errorState = this.props.errorInLogin ? " error" : "";
+    var loginState = this.props.loggedIn ? "logged-in" : "logged-out";
+    this.className = loginState + " " + errorState;
+  },
+  _inputKeydownListener: function($__2) {
+    var key = $__2.key,
+        keyId = $__2.keyIdentifier;
+    if (key === "Enter" || keyId === "Enter") {
+      this._onLoginClicked();
+    }
+  },
+  _onLoginClicked: function() {
+    console.info("login");
+  },
+  _onLogoutClicked: function() {
+    console.info("logout");
   }
 }, {}, HTMLElement);
