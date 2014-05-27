@@ -21,10 +21,10 @@ export class HeaderElement extends HTMLElement {
 	}
 
 	// Fires when an instance was removed from the document
-	detachedCallback() {};
+	detachedCallback() {}
 
 	// Fires when an attribute was added, removed, or updated
-	attributeChangedCallback(attr, oldVal, newVal) {};
+	attributeChangedCallback(attr, oldVal, newVal) {}
 
 	render() {
 		var errorState = this.props.errorInLogin ? " error" : "";
