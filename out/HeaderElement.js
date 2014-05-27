@@ -57,13 +57,11 @@ var $HeaderElement = HeaderElement;
     }
   },
   _onLoginClicked: function() {
-    console.info("login");
     var username = this.querySelector("#username").value;
     var password = this.querySelector("#password").value;
     HeaderActions.login(username, password);
   },
   _onLogoutClicked: function() {
-    console.info("logout");
     HeaderActions.logout();
   }
 }, {}, HTMLElement);

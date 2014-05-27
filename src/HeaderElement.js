@@ -52,8 +52,6 @@ export class HeaderElement extends HTMLElement {
 	}
 
 	_onLoginClicked() {
-		console.info("login");
-
 		var username = this.querySelector("#username").value;
 		var password = this.querySelector("#password").value;
 
@@ -61,8 +59,6 @@ export class HeaderElement extends HTMLElement {
 	}
 
 	_onLogoutClicked() {
-		console.info("logout");
-
 		HeaderActions.logout();
 	}
 }
