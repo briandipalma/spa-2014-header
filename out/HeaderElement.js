@@ -5,6 +5,8 @@ Object.defineProperties(exports, {
     }},
   __esModule: {value: true}
 });
+var HeaderStore = $traceurRuntime.assertObject(require("./HeaderStore")).HeaderStore;
+var HeaderActions = $traceurRuntime.assertObject(require("./HeaderActions")).default;
 require("../css/index.css!");
 var headerTemplate = $traceurRuntime.assertObject(require("../template/header.text!")).default;
 var HeaderElement = function HeaderElement() {
@@ -33,13 +35,18 @@ var $HeaderElement = HeaderElement;
     passwordInput.addEventListener("keydown", (function(keyboardEvent) {
       return $__0._inputKeydownListener(keyboardEvent);
     }));
+    HeaderStore.addChangeListener(this.onHeaderStoreChange);
   },
   detachedCallback: function() {},
   attributeChangedCallback: function(attr, oldVal, newVal) {},
   render: function() {
-    var errorState = this.props.errorInLogin ? " error" : "";
-    var loginState = this.props.loggedIn ? "logged-in" : "logged-out";
+    var loginState = this.props.logginState;
+    var loginErrorState = this.props.loginErrorState;
     this.className = loginState + " " + errorState;
+  },
+  onHeaderStoreChange: function() {
+    this.props = HeaderStore.getState();
+    this.render();
   },
   _inputKeydownListener: function($__2) {
     var key = $__2.key,
@@ -50,8 +57,12 @@ var $HeaderElement = HeaderElement;
   },
   _onLoginClicked: function() {
     console.info("login");
+    var username = this.querySelector("#username").value;
+    var password = this.querySelector("#password").value;
+    HeaderActions.login(username, password);
   },
   _onLogoutClicked: function() {
     console.info("logout");
+    HeaderActions.logout();
   }
 }, {}, HTMLElement);

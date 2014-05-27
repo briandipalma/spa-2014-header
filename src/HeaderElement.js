@@ -1,3 +1,6 @@
+import {HeaderStore} from "./HeaderStore";
+import HeaderActions from "./HeaderActions";
+
 import "../css/index.css!";
 import headerTemplate from "../template/header.text!";
 
@@ -18,6 +21,8 @@ export class HeaderElement extends HTMLElement {
 		logoutButton.addEventListener("click", () => this._onLogoutClicked());
 		usernameInput.addEventListener("keydown", (keyboardEvent) => this._inputKeydownListener(keyboardEvent));
 		passwordInput.addEventListener("keydown", (keyboardEvent) => this._inputKeydownListener(keyboardEvent));
+
+		HeaderStore.addChangeListener(this.onHeaderStoreChange);
 	}
 
 	// Fires when an instance was removed from the document
@@ -27,10 +32,15 @@ export class HeaderElement extends HTMLElement {
 	attributeChangedCallback(attr, oldVal, newVal) {}
 
 	render() {
-		var errorState = this.props.errorInLogin ? " error" : "";
-		var loginState = this.props.loggedIn ? "logged-in" : "logged-out";
+		var loginState = this.props.logginState;
+		var loginErrorState = this.props.loginErrorState;
 
 		this.className = loginState + " " + errorState;
+	}
+
+	onHeaderStoreChange() {
+		this.props = HeaderStore.getState();
+		this.render();
 	}
 
 	_inputKeydownListener({key: key, keyIdentifier: keyId}) {
@@ -41,17 +51,27 @@ export class HeaderElement extends HTMLElement {
 
 	_onLoginClicked() {
 		console.info("login");
+
+		var username = this.querySelector("#username").value;
+		var password = this.querySelector("#password").value;
+
+		HeaderActions.login(username, password);
 	}
 
 	_onLogoutClicked() {
 		console.info("logout");
+
+		HeaderActions.logout();
 	}
 }
 
-//The controller-views call their own render() method via setState() or forceUpdate(), updating themselves and all of their children.
+//The controller-views call their own render() method via setState() or forceUpdate(),
+// updating themselves and all of their children.
 
-//The dispatcher is the central hub that manages all data flow in a Flux application. It is essentially a registry of callbacks into
-//the stores. Each store registers itself and provides a callback. When the dispatcher responds to an action, all stores in the
+//The dispatcher is the central hub that manages all data flow in a Flux application.
+//It is essentially a registry of callbacks into the stores.
+//Each store registers itself and provides a callback.
+//When the dispatcher responds to an action, all stores in the
 //application are sent the data payload provided by the action via the callbacks in the registry.
 
 //In Flux, the Dispatcher is a singleton that directs the flow of data and ensures that updates do not cascade.
