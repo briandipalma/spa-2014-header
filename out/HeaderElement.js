@@ -35,7 +35,7 @@ var $HeaderElement = HeaderElement;
     passwordInput.addEventListener("keydown", (function(keyboardEvent) {
       return $__0._inputKeydownListener(keyboardEvent);
     }));
-    HeaderStore.addChangeListener(this.headerStoreChanged);
+    HeaderStore.addChangeListener(this.headerStoreChanged, this);
     this.headerStoreChanged();
   },
   detachedCallback: function() {},

@@ -22,7 +22,7 @@ export class HeaderElement extends HTMLElement {
 		usernameInput.addEventListener("keydown", (keyboardEvent) => this._inputKeydownListener(keyboardEvent));
 		passwordInput.addEventListener("keydown", (keyboardEvent) => this._inputKeydownListener(keyboardEvent));
 
-		HeaderStore.addChangeListener(this.headerStoreChanged);
+		HeaderStore.addChangeListener(this.headerStoreChanged, this);
 
 		this.headerStoreChanged();
 	}
