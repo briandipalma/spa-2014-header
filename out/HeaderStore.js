@@ -49,13 +49,15 @@ var HeaderStore = Object.assign({
     return true;
   },
   emitChange: function() {
-    this.emit(CHANGE_EVENT);
+    this.trigger(CHANGE_EVENT);
   },
-  addChangeListener: function(callback) {
-    this.on(CHANGE_EVENT, callback);
+  addChangeListener: function(callback, context) {
+    this.on(CHANGE_EVENT, callback, context);
   },
   removeChangeListener: function(callback) {
     this.removeListener(CHANGE_EVENT, callback);
   }
 }, Emitr.prototype);
-HeaderDispatcher.register(HeaderStore.handleDispatcherAction);
+HeaderDispatcher.register((function(payload) {
+  return HeaderStore.handleDispatcherAction(payload);
+}));

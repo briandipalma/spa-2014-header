@@ -52,14 +52,14 @@ export var HeaderStore = Object.assign({
     },
 
     emitChange() {
-        this.emit(CHANGE_EVENT);
+        this.trigger(CHANGE_EVENT);
     },
 
     /**
      * @param {function} callback
      */
-    addChangeListener(callback) {
-        this.on(CHANGE_EVENT, callback);
+    addChangeListener(callback, context) {
+        this.on(CHANGE_EVENT, callback, context);
     },
 
     /**
@@ -71,4 +71,4 @@ export var HeaderStore = Object.assign({
 }, Emitr.prototype);
 
 // Register to handle all updates
-HeaderDispatcher.register(HeaderStore.handleDispatcherAction);
+HeaderDispatcher.register((payload) => HeaderStore.handleDispatcherAction(payload));
