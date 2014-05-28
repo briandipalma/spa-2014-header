@@ -3,7 +3,7 @@ import HeaderDispatcher from "./HeaderDispatcher";
 
 export default {
     loggedIn() {
-        HeaderDispatcher.handleViewAction({
+        HeaderDispatcher.handleServerAction({
             actionType: HeaderConstants.LOGGED_IN
         });
     },
@@ -17,7 +17,7 @@ export default {
     },
 
     loggedOut() {
-        HeaderDispatcher.handleViewAction({
+        HeaderDispatcher.handleServerAction({
             actionType: HeaderConstants.LOGGED_OUT
         });
     },
@@ -29,7 +29,7 @@ export default {
     },
 
     loginError() {
-        HeaderDispatcher.handleViewAction({
+        HeaderDispatcher.handleServerAction({
             actionType: HeaderConstants.LOGIN_ERROR
         });
     },

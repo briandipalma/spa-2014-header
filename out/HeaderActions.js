@@ -9,7 +9,7 @@ var HeaderConstants = $traceurRuntime.assertObject(require("./HeaderConstants"))
 var HeaderDispatcher = $traceurRuntime.assertObject(require("./HeaderDispatcher")).default;
 var $__default = {
   loggedIn: function() {
-    HeaderDispatcher.handleViewAction({actionType: HeaderConstants.LOGGED_IN});
+    HeaderDispatcher.handleServerAction({actionType: HeaderConstants.LOGGED_IN});
   },
   login: function(username, password) {
     HeaderDispatcher.handleViewAction({
@@ -19,13 +19,13 @@ var $__default = {
     });
   },
   loggedOut: function() {
-    HeaderDispatcher.handleViewAction({actionType: HeaderConstants.LOGGED_OUT});
+    HeaderDispatcher.handleServerAction({actionType: HeaderConstants.LOGGED_OUT});
   },
   logout: function() {
     HeaderDispatcher.handleViewAction({actionType: HeaderConstants.LOGGING_OUT});
   },
   loginError: function() {
-    HeaderDispatcher.handleViewAction({actionType: HeaderConstants.LOGIN_ERROR});
+    HeaderDispatcher.handleServerAction({actionType: HeaderConstants.LOGIN_ERROR});
   },
   loginErrorCleared: function() {
     HeaderDispatcher.handleViewAction({actionType: HeaderConstants.LOGIN_ERROR_CLEARED});
