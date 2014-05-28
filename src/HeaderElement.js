@@ -1,7 +1,7 @@
 import {HeaderStore} from "./HeaderStore";
 import HeaderActions from "./HeaderActions";
 
-import "../css/index.css!";
+import "../style/index.css!";
 import headerTemplate from "../template/header.text!";
 
 export class HeaderElement extends HTMLElement {

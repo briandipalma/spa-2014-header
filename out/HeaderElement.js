@@ -7,7 +7,7 @@ Object.defineProperties(exports, {
 });
 var HeaderStore = $traceurRuntime.assertObject(require("./HeaderStore")).HeaderStore;
 var HeaderActions = $traceurRuntime.assertObject(require("./HeaderActions")).default;
-require("../css/index.css!");
+require("../style/index.css!");
 var headerTemplate = $traceurRuntime.assertObject(require("../template/header.text!")).default;
 var HeaderElement = function HeaderElement() {
   $traceurRuntime.defaultSuperCall(this, $HeaderElement.prototype, arguments);
