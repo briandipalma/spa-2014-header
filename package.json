@@ -12,7 +12,8 @@
     "es6-module-loader": "~0.6.0",
     "x-tag-core": "git://github.com/x-tag/core#0.9.7",
     "emitr": "0.0.3",
-    "systemjs-css": "git://github.com/briandipalma/plugin-css"
+    "systemjs-css": "git://github.com/briandipalma/plugin-css",
+    "systemjs-text": "git://github.com/briandipalma/plugin-text"
   },
   "devDependencies": {
     "watchy": "~0.4.4",
