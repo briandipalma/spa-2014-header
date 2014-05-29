@@ -1,7 +1,7 @@
 import Emitr from "emitr";
+import FluxDispatcher from "flux-dispatcher";
 
 import HeaderConstants from "./HeaderConstants";
-import HeaderDispatcher from "./HeaderDispatcher";
 
 var CHANGE_EVENT = 'change';
 
@@ -71,4 +71,4 @@ export var HeaderStore = Object.assign({
 }, Emitr.prototype);
 
 // Register to handle all updates
-HeaderDispatcher.register((payload) => HeaderStore.handleDispatcherAction(payload));
+FluxDispatcher.register((payload) => HeaderStore.handleDispatcherAction(payload));
