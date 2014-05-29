@@ -1,42 +1,44 @@
-import FluxDispatcher from "flux-dispatcher";
-
 import HeaderConstants from "./HeaderConstants";
 
-export default {
+export default class {
+    constructor(headerDispatcher) {
+        this.headerDispatcher = headerDispatcher;
+    }
+
     loggedIn() {
-        FluxDispatcher.handleServerAction({
+        this.headerDispatcher.handleServerAction({
             actionType: HeaderConstants.LOGGED_IN
         });
-    },
+    }
 
     login(username, password) {
-        FluxDispatcher.handleViewAction({
+        this.headerDispatcher.handleViewAction({
             actionType: HeaderConstants.LOGGING_IN,
             username: username,
             password: password
         });
-    },
+    }
 
     loggedOut() {
-        FluxDispatcher.handleServerAction({
+        this.headerDispatcher.handleServerAction({
             actionType: HeaderConstants.LOGGED_OUT
         });
-    },
+    }
 
     logout() {
-        FluxDispatcher.handleViewAction({
+        this.headerDispatcher.handleViewAction({
             actionType: HeaderConstants.LOGGING_OUT
         });
-    },
+    }
 
     loginError() {
-        FluxDispatcher.handleServerAction({
+        this.headerDispatcher.handleServerAction({
             actionType: HeaderConstants.LOGIN_ERROR
         });
-    },
+    }
 
     loginErrorCleared() {
-        FluxDispatcher.handleViewAction({
+        this.headerDispatcher.handleViewAction({
             actionType: HeaderConstants.LOGIN_ERROR_CLEARED
         });
     }

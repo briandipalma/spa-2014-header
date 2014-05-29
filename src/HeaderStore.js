@@ -1,5 +1,4 @@
 import Emitr from "emitr";
-import FluxDispatcher from "flux-dispatcher";
 
 import HeaderConstants from "./HeaderConstants";
 
@@ -15,10 +14,10 @@ function setHeaderState(loginState, loginErrorState) {
     headerState.loginErrorState = loginErrorState;
 }
 
-export var HeaderStore = Object.assign({
+export default class extends Emitr {
     getState() {
         return headerState;
-    },
+    }
 
     handleDispatcherAction(payload) {
         var action = payload.action;
@@ -49,18 +48,18 @@ export var HeaderStore = Object.assign({
         this.emitChange();
 
         return true;
-    },
+    }
 
     emitChange() {
         this.trigger(CHANGE_EVENT);
-    },
+    }
 
     /**
      * @param {function} callback
      */
     addChangeListener(callback, context) {
         this.on(CHANGE_EVENT, callback, context);
-    },
+    }
 
     /**
      * @param {function} callback
@@ -68,7 +67,4 @@ export var HeaderStore = Object.assign({
     removeChangeListener(callback) {
         this.removeListener(CHANGE_EVENT, callback);
     }
-}, Emitr.prototype);
-
-// Register to handle all updates
-FluxDispatcher.register((payload) => HeaderStore.handleDispatcherAction(payload));
+}
