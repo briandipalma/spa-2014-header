@@ -14,7 +14,8 @@
     "emitr": "0.0.3",
     "systemjs-css": "git://github.com/briandipalma/plugin-css",
     "systemjs-text": "git://github.com/briandipalma/plugin-text",
-    "flux-dispatcher": "git://github.com/briandipalma/flux-dispatcher"
+    "flux-dispatcher": "git://github.com/briandipalma/flux-dispatcher",
+    "flux-es6": "git://github.com/briandipalma/flux-es6"
   },
   "devDependencies": {
     "watchy": "~0.4.4",
