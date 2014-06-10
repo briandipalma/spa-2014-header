@@ -19,7 +19,7 @@ export default class extends Store {
         return headerState;
     }
 
-    handleDispatcherAction(payload) {
+    handleAction(payload) {
         var action = payload.action;
 
         switch (action.actionType) {
