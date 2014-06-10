@@ -1,12 +1,15 @@
-import {createStoreAndActions} from "./index";
+import {createStoreAndActions} from 'flux-es6';
 
-import "../style/index.css!";
-import headerTemplate from "../template/header.text!";
+import HeaderStore from "./HeaderStore";
+import HeaderActions from "./HeaderActions";
+
+import '../style/index.css!';
+import headerTemplate from '../template/header.text!';
 
 export class HeaderElement extends HTMLElement {
 	// Fires when an instance of the HeaderElement is created
 	createdCallback() {
-		var [headerStore, headerActions] = createStoreAndActions();
+		var [headerStore, headerActions] = createStoreAndActions(HeaderStore, HeaderActions);
 
 		this.innerHTML = headerTemplate;
 		this.headerStore = headerStore;
@@ -15,19 +18,17 @@ export class HeaderElement extends HTMLElement {
 
 	// Fires when the instance is inserted into the document
 	attachedCallback() {
-		var usernameInput = this.querySelector("#username");
-		var passwordInput = this.querySelector("#password");
-		var loginButton = this.querySelector("button[name='login']");
-		var logoutButton = this.querySelector("button[name='logout']");
+		var usernameInput = this.querySelector('#username');
+		var passwordInput = this.querySelector('#password');
+		var loginButton = this.querySelector('button[name="login"]');
+		var logoutButton = this.querySelector('button[name="logout"]');
 
-		loginButton.addEventListener("click", () => this._onLoginClicked());
-		logoutButton.addEventListener("click", () => this._onLogoutClicked());
-		usernameInput.addEventListener("keydown", (keyboardEvent) => this._inputKeydownListener(keyboardEvent));
-		passwordInput.addEventListener("keydown", (keyboardEvent) => this._inputKeydownListener(keyboardEvent));
+		loginButton.addEventListener('click', () => this._onLoginClicked());
+		logoutButton.addEventListener('click', () => this._onLogoutClicked());
+		usernameInput.addEventListener('keydown', (keyboardEvent) => this._inputKeydownListener(keyboardEvent));
+		passwordInput.addEventListener('keydown', (keyboardEvent) => this._inputKeydownListener(keyboardEvent));
 
-		this.headerStore.addChangeListener(this.headerStoreChanged, this);
-
-		this.headerStoreChanged();
+		this.headerStore.addChangeListenerAndNotify(this.headerStoreChanged, this);
 	}
 
 	// Fires when the instance is removed from the document
@@ -44,7 +45,7 @@ export class HeaderElement extends HTMLElement {
 		var loginState = this.props.loginState;
 		var loginErrorState = this.props.loginErrorState;
 
-		this.className = loginState + " " + loginErrorState;
+		this.className = loginState + ' ' + loginErrorState;
 	}
 
 	headerStoreChanged() {
@@ -53,14 +54,14 @@ export class HeaderElement extends HTMLElement {
 	}
 
 	_inputKeydownListener({key: key, keyIdentifier: keyId}) {
-		if (key === "Enter" || keyId === "Enter") {
+		if (key === 'Enter' || keyId === 'Enter') {
 			this._onLoginClicked();
 		}
 	}
 
 	_onLoginClicked() {
-		var username = this.querySelector("#username").value;
-		var password = this.querySelector("#password").value;
+		var username = this.querySelector('#username').value;
+		var password = this.querySelector('#password').value;
 
 		this.headerActions.login(username, password);
 	}
