@@ -1,7 +1,7 @@
 import {createStoreAndActions} from 'flux-es6';
 
-import HeaderStore from "./HeaderStore";
-import HeaderActions from "./HeaderActions";
+import HeaderStore from './HeaderStore';
+import HeaderActions from './HeaderActions';
 
 import '../style/index.css!';
 import headerTemplate from '../template/header.text!';
@@ -30,12 +30,6 @@ export class HeaderElement extends HTMLElement {
 
 		this.headerStore.addChangeListenerAndNotify(this.headerStoreChanged, this);
 	}
-
-	// Fires when the instance is removed from the document
-	detachedCallback() {}
-
-	// Fires when an attribute is added, removed, or updated
-	attributeChangedCallback(attr, oldVal, newVal) {}
 
 	get headerDispatcher() {
 		return this.headerActions.headerDispatcher;
